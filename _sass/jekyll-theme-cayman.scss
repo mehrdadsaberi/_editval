@@ -373,41 +373,6 @@ a {
   font-weight: bold;
 }
 
-
-    .tabs {
-      display: flex;
-      justify-content: center;
-      background-color: $header-bg-color;
-      padding: 1rem 0;
-    }
-
-    .tabs ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-    }
-
-    .tabs li {
-      margin: 0;
-    }
-
-    .tabs a {
-      color: $header-heading-color;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.3s;
-
-      &:hover {
-        border-color: $header-heading-color;
-      }
-    }
-
-    .tabs a.active {
-      border-color: $header-heading-color;
-    }
-
 .site-footer-credits {
   color: $blockquote-text-color;
 }
