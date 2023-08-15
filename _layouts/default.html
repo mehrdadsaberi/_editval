@@ -49,21 +49,26 @@
     .tabs a.active {
       border-color: $header-heading-color;
     }
+
+    .tabs a {
+      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
   </style>
   {% include head-custom.html %}
 </head>
 <body>
   <a id="skip-to-content" href="#content">Skip to the content.</a>
 
-  
-
-  <header class="page-header" role="banner">
-    <nav class="tabs">
+  <nav class="tabs">
     <ul>
       <li><a href="{{ site.baseurl }}/" class="active">Home</a></li>
       <li><a href="{{ site.baseurl }}/leaderboard.html">Leaderboard</a></li>
     </ul>
   </nav>
+
+  <header class="page-header" role="banner">
     <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
     <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
     {% if site.github.is_project_page %}
