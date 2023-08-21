@@ -10,73 +10,70 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   <style>
-    /* Additional styles based on the provided code */
-    /* Modify or add more styles as needed */
-    body {
-      /* Add styles here */
+    #human_study, #leaderboards {
+      scroll-margin-top: 70px;
     }
 
-    .tabs {
-      display: flex;
-      justify-content: flex-end;
-      background-color: $header-bg-color;
-      padding: 1rem 0;
+    .content {
+      padding: 16px;
     }
 
-    .tabs ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
+    .sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
     }
 
-    .tabs li {
-      margin: 0;
+    .sticky + .content {
+      padding-top: 60px;
     }
 
-    .tabs a {
-      color: $header-heading-color;
+    #navbar {
+      overflow: hidden;
+      background-color: rgba(50, 89, 147, 1.0);
+    }
+
+    #navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px;
       text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.3s;
-
-      &:hover {
-        border-color: $header-heading-color;
-      }
     }
 
-    .tabs a.active {
-      border-color: $header-heading-color;
+    #navbar a:hover {
+      background-color: rgba(74, 144, 98, 0.7);
+      color: white;
     }
 
-    .tabs a {
-      font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.5;
+    #navbar a.active {
+      background-color: rgba(74, 144, 98, 1.0);
+      color: white;
     }
+    
   </style>
+  
   {% include head-custom.html %}
 </head>
 <body>
   <a id="skip-to-content" href="#content">Skip to the content.</a>
 
-  <nav class="tabs">
-    <ul>
-      <li><a href="{{ site.baseurl }}/" class="active">Home</a></li>
-      <li><a href="{{ site.baseurl }}/leaderboard.html">Leaderboard</a></li>
-    </ul>
-  </nav>
+  <div id="home"></div>
+  
+
+  <div id="navbar">
+    <a class="active" href="#home">Home</a>
+    <a href="#human_study">Human Study</a>
+    <a href="#leaderboards">Leaderboards</a>
+    <a style="float:right;padding-right: 25px;padding-left: 25px;" href="#contact">Contact US</a></li>
+  </div>
 
   <header class="page-header" role="banner">
     <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
     <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-    {% if site.github.is_project_page %}
-      <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-    {% endif %}
-    {% if site.show_downloads %}
-      <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
-      <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
+    {% if page.show_buttons %}
+      <a target="_blank" href="{{ page.repository_url }}" class="btn">View on GitHub</a>
     {% endif %}
   </header>
 
@@ -91,4 +88,23 @@
     </footer>
   </main>
 </body>
+<script>
+    // When the user scrolls the page, execute myFunction
+    window.onscroll = function() {myFunction()};
+
+    // Get the navbar
+    var navbar = document.getElementById("navbar");
+
+    // Get the offset position of the navbar
+    var sticky = navbar.offsetTop;
+
+    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+  </script>
 </html>
