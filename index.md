@@ -37,10 +37,6 @@ The attribute list _A_ for ~100 images from MS-COCO can be downloaded from [here
         "to" : ["target states of attribute", ...]}}}
 }
 ```
-
-## More Details on EditVal Dataset and Pipeline :
-EditVal benchmark contains 648 unique image-edit operations for 19 classes selected from MS-COCO spanning a variety of real-world edits. Edit operations span simple attribute categories like adding or replacing an object to more complex ones such as changing an action, camera viewpoint or replacing the position of an existing object.
-
 The complete list of edit attributes for evaluation currently is:
 
 
@@ -56,6 +52,12 @@ The complete list of edit attributes for evaluation currently is:
 *   **Shape:** changing shape of an object (e.g., circle-shaped stop sign)
 *   **Action:** changing the action that the main object is performing (e.g., dog running).
 *   **Viewpoint:** changing the viewpoint in which the image is taken from (e.g., photo of a dog from above).
+
+
+## More Details on EditVal Dataset and Pipeline :
+EditVal benchmark contains 648 unique image-edit operations for 19 classes selected from MS-COCO spanning a variety of real-world edits. Edit operations span simple attribute categories like adding or replacing an object to more complex ones such as changing an action, camera viewpoint or replacing the position of an existing object.
+
+![Branching](./teaser_EditVal_Pipeline.pdf)
 
 
 <div id="human_study"></div>
