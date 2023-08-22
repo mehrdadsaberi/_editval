@@ -172,11 +172,11 @@ The numbers below for the human study are calculated only on the first question 
 # Visual Case Studies
 
 **Visualization of Failure Modes of Text Guided Image Editing Models**
-![Branching](./editval_teaser.png)
+![Branching](./failure_modes.png)
 
 **Visual Case Studies**
 
-![Branching](./editval_teaser.png)
+![Branching](./casestudy2.png)
 Positional-Addition: For the bench image, we find that for
 InstructPix2Pix – the correct object is added, but the spatial positioning is not respected. For SDE-
 Edit, only for the case of ’ball’ on top of the bench, the edit is correct. For the other cases, the
@@ -184,7 +184,7 @@ correct object is also not added. This is similar to what we observed for object
 of SDE-Edit. For Dreambooth, we find that the correct spatial positioning is respected in two cases,
 but the structure of the original bench changes drastically.
 
-![Branching](./editval_teaser.png)
+![Branching](./casestudy1.png)
 Background: For the couch image, we can observe that all the
 methods fail at inserting the correct background behind the couch. Instruct-Pix2Pix inserts a shade
 of a grassland behind the couch, whereas Null-Text is able to correctly place the couch in a grassland,
