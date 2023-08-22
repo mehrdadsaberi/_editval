@@ -57,7 +57,7 @@ The complete list of edit attributes for evaluation currently is:
 ## More Details on EditVal Dataset and Pipeline
 EditVal benchmark contains 648 unique image-edit operations for 19 classes selected from MS-COCO spanning a variety of real-world edits. Edit operations span simple attribute categories like adding or replacing an object to more complex ones such as changing an action, camera viewpoint or replacing the position of an existing object.
 
-![Branching](./teaser_pipeline.png)
+![Branching](./pipeline.png)
 
 
 <div id="human_study"></div>
@@ -264,4 +264,28 @@ function sortTable(n, tableID) {
         }
     });
 </script>
+
+# Visual Case Studies
+
+**Visualization of Failure Modes of Text Guided Image Editing Models**
+![Branching](./editval_teaser.png)
+
+**Visual Case Studies**
+
+![Branching](./editval_teaser.png)
+Positional-Addition: For the bench image, we find that for
+InstructPix2Pix – the correct object is added, but the spatial positioning is not respected. For SDE-
+Edit, only for the case of ’ball’ on top of the bench, the edit is correct. For the other cases, the
+correct object is also not added. This is similar to what we observed for object-addition in the case
+of SDE-Edit. For Dreambooth, we find that the correct spatial positioning is respected in two cases,
+but the structure of the original bench changes drastically.
+
+![Branching](./editval_teaser.png)
+Background: For the couch image, we can observe that all the
+methods fail at inserting the correct background behind the couch. Instruct-Pix2Pix inserts a shade
+of a grassland behind the couch, whereas Null-Text is able to correctly place the couch in a grassland,
+though the shape and characteristics of the couch change drastically. For SINE, we find that none of
+the background-edit operations are correct and the edited images are closed to the original image.
+
+
 
