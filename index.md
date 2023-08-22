@@ -3,12 +3,12 @@ layout: default
 title: EDITVAL 
 description:  Benchmarking Text-Guided Image Editing Methods
 
-show_buttons: true
+show_buttons: false
 
 repository_url: https://github.com/Samyadeep/editbench/tree/main
 ---
 
-## Overview
+# Overview
 
 **EDITVAL** is a standardized benchmark for evaluating text-guided image editing methods across diverse edit types, validated through a large-scale human study. 
 
@@ -54,7 +54,7 @@ The complete list of edit attributes for evaluation currently is:
 *   **Viewpoint:** changing the viewpoint in which the image is taken from (e.g., photo of a dog from above).
 
 
-## More Details on EditVal Dataset and Pipeline :
+## More Details on EditVal Dataset and Pipeline
 EditVal benchmark contains 648 unique image-edit operations for 19 classes selected from MS-COCO spanning a variety of real-world edits. Edit operations span simple attribute categories like adding or replacing an object to more complex ones such as changing an action, camera viewpoint or replacing the position of an existing object.
 
 ![Branching](./teaser_pipeline.png)
@@ -128,15 +128,39 @@ An example of an input csv file can be seen [here](https://drive.google.com/file
 # Leaderboards
 
 
-<table id="myTable">
+<h2 style="text-align:center;">Human Study</h2>
+<table id="human_study_table" style="overflow:visible;text-align: center;
+  display: flex;
+  justify-content: center;">
   <tr>
    <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
-    <th onclick="sortTable(0)">Method</th>
-    <th onclick="sortTable(1)">Country</th>
-    <th onclick="sortTable(2)">Country</th>
-    <th onclick="sortTable(3)">Country</th>
-    <th onclick="sortTable(4)">Country</th>
-    <th onclick="sortTable(5)">Country</th>
+    <th onclick="sortTable(0, 'human_study_table')">Method</th>
+    <th onclick="sortTable(1, 'human_study_table')">Object Addition</th>
+    <th onclick="sortTable(2, 'human_study_table')">Object Replacement</th>
+    <th onclick="sortTable(3, 'human_study_table')">Position Replacement</th>
+    <th onclick="sortTable(4, 'human_study_table')">Positional Addition</th>
+    <th onclick="sortTable(5, 'human_study_table')">Size</th>
+    <th onclick="sortTable(6, 'human_study_table')">Alter Parts</th>
+    <th onclick="sortTable(7, 'human_study_table')">Average</th>
+  </tr>
+</table>
+
+
+
+<h2 style="text-align:center;">Automatic Evaluation</h2>
+<table id="aut_eval_table" style="overflow:visible;text-align: center;
+  display: flex;
+  justify-content: center;">
+  <tr>
+   <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
+    <th onclick="sortTable(0, 'aut_eval_table')">Method</th>
+    <th onclick="sortTable(1, 'aut_eval_table')">Object Addition</th>
+    <th onclick="sortTable(2, 'aut_eval_table')">Object Replacement</th>
+    <th onclick="sortTable(3, 'aut_eval_table')">Position Replacement</th>
+    <th onclick="sortTable(4, 'aut_eval_table')">Positional Addition</th>
+    <th onclick="sortTable(5, 'aut_eval_table')">Size</th>
+    <th onclick="sortTable(6, 'aut_eval_table')">Alter Parts</th>
+    <th onclick="sortTable(7, 'aut_eval_table')">Average</th>
   </tr>
 </table>
 
@@ -148,12 +172,12 @@ An example of an input csv file can be seen [here](https://drive.google.com/file
 
 
 <script>
-function sortTable(n) {
+function sortTable(n, tableID) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-  table = document.getElementById("myTable");
+  table = document.getElementById(tableID);
   switching = true;
   //Set the sorting direction to ascending:
-  dir = "asc"; 
+  dir = "desc"; 
   /*Make a loop that will continue until
   no switching has been done:*/
   while (switching) {
@@ -195,8 +219,8 @@ function sortTable(n) {
     } else {
       /*If no switching has been done AND the direction is "asc",
       set the direction to "desc" and run the while loop again.*/
-      if (switchcount == 0 && dir == "asc") {
-        dir = "desc";
+      if (switchcount == 0 && dir == "desc") {
+        dir = "asc";
         switching = true;
       }
     }
@@ -207,23 +231,32 @@ function sortTable(n) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
 
 <script>
-    function arrayToTable(tableData) {
-        var table = document.getElementById("myTable");
+    function arrayToTable(tableData, tableID) {
+        var table = document.getElementById(tableID);
         $(tableData).each(function (i, rowData) {
             let row = table.insertRow(-1);
             $(rowData).each(function (j, cellData) {
                 let c = row.insertCell(j);
-                c.innerText = cellData;
+                if (j != 0) {
+                  cellData = Math.round(cellData * 100) / 100;
+                }
+                c.innerText = cellData
             });
         });
         return table;
     }
-
     $.ajax({
         type: "GET",
-        url: "http://127.0.0.1:4000/sample.csv",
+        url: "./human_study_table.csv",
         success: function (data) {
-            arrayToTable(Papa.parse(data).data);
+            arrayToTable(Papa.parse(data).data, "human_study_table");
+        }
+    });
+    $.ajax({
+        type: "GET",
+        url: "./aut_eval_table.csv",
+        success: function (data) {
+            arrayToTable(Papa.parse(data).data, "aut_eval_table");
         }
     });
 </script>
