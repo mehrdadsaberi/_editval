@@ -127,6 +127,8 @@ An example of an input csv file can be seen [here](https://drive.google.com/file
 
 # Leaderboards
 
+The numbers below for the human study are calculated only on the first question of the template, which does not consider the changes to the rest of the image. This has been done in order to keep the results comparable to our automatic evaluation framework. For each instant in the human study, a score of `1.0` is given if the edit is `Adequetly applied` or `Perfectly applied`, and a score of `0.0` otherwise.
+
 
 <h2 style="text-align:center;">Human Study</h2>
 <table id="human_study_table" style="overflow:visible;text-align: center;
@@ -134,14 +136,14 @@ An example of an input csv file can be seen [here](https://drive.google.com/file
   justify-content: center;">
   <tr>
    <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
-    <th onclick="sortTable(0, 'human_study_table')">Method</th>
-    <th onclick="sortTable(1, 'human_study_table')">Object Addition</th>
-    <th onclick="sortTable(2, 'human_study_table')">Object Replacement</th>
-    <th onclick="sortTable(3, 'human_study_table')">Position Replacement</th>
-    <th onclick="sortTable(4, 'human_study_table')">Positional Addition</th>
-    <th onclick="sortTable(5, 'human_study_table')">Size</th>
-    <th onclick="sortTable(6, 'human_study_table')">Alter Parts</th>
-    <th onclick="sortTable(7, 'human_study_table')">Average</th>
+    <th onclick="sortTable(0, 'human_study_table')" style="cursor: pointer;">Method</th>
+    <th onclick="sortTable(1, 'human_study_table')" style="cursor: pointer;">Object Addition</th>
+    <th onclick="sortTable(2, 'human_study_table')" style="cursor: pointer;">Object Replacement</th>
+    <th onclick="sortTable(3, 'human_study_table')" style="cursor: pointer;">Position Replacement</th>
+    <th onclick="sortTable(4, 'human_study_table')" style="cursor: pointer;">Positional Addition</th>
+    <th onclick="sortTable(5, 'human_study_table')" style="cursor: pointer;">Size</th>
+    <th onclick="sortTable(6, 'human_study_table')" style="cursor: pointer;">Alter Parts</th>
+    <th onclick="sortTable(7, 'human_study_table')" style="cursor: pointer;">Average</th>
   </tr>
 </table>
 
@@ -153,14 +155,14 @@ An example of an input csv file can be seen [here](https://drive.google.com/file
   justify-content: center;">
   <tr>
    <!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by country:-->  
-    <th onclick="sortTable(0, 'aut_eval_table')">Method</th>
-    <th onclick="sortTable(1, 'aut_eval_table')">Object Addition</th>
-    <th onclick="sortTable(2, 'aut_eval_table')">Object Replacement</th>
-    <th onclick="sortTable(3, 'aut_eval_table')">Position Replacement</th>
-    <th onclick="sortTable(4, 'aut_eval_table')">Positional Addition</th>
-    <th onclick="sortTable(5, 'aut_eval_table')">Size</th>
-    <th onclick="sortTable(6, 'aut_eval_table')">Alter Parts</th>
-    <th onclick="sortTable(7, 'aut_eval_table')">Average</th>
+    <th onclick="sortTable(0, 'aut_eval_table')" style="cursor: pointer;">Method</th>
+    <th onclick="sortTable(1, 'aut_eval_table')" style="cursor: pointer;">Object Addition</th>
+    <th onclick="sortTable(2, 'aut_eval_table')" style="cursor: pointer;">Object Replacement</th>
+    <th onclick="sortTable(3, 'aut_eval_table')" style="cursor: pointer;">Position Replacement</th>
+    <th onclick="sortTable(4, 'aut_eval_table')" style="cursor: pointer;">Positional Addition</th>
+    <th onclick="sortTable(5, 'aut_eval_table')" style="cursor: pointer;">Size</th>
+    <th onclick="sortTable(6, 'aut_eval_table')" style="cursor: pointer;">Alter Parts</th>
+    <th onclick="sortTable(7, 'aut_eval_table')" style="cursor: pointer;">Average</th>
   </tr>
 </table>
 
@@ -168,6 +170,8 @@ An example of an input csv file can be seen [here](https://drive.google.com/file
 <div id="contact"></div>
 
 # Contact Us
+
+Contact us at `xxx@gmail.com` if you wish to add your method to the leaderboards.
 
 
 
