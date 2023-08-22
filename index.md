@@ -8,7 +8,7 @@ show_buttons: true
 repository_url: https://github.com/Samyadeep/editbench/tree/main
 ---
 
-
+## Overview
 
 **EDITVAL** is a standardized benchmark for evaluating text-guided image editing methods across diverse edit types, validated through a large-scale human study. 
 
@@ -38,8 +38,10 @@ The attribute list _A_ for ~100 images from MS-COCO can be downloaded from [here
 }
 ```
 
+## More Details on EditVal Dataset and Pipeline :
+EditVal benchmark contains 648 unique image-edit operations for 19 classes selected from MS-COCO spanning a variety of real-world edits. Edit operations span simple attribute categories like adding or replacing an object to more complex ones such as changing an action, camera viewpoint or replacing the position of an existing object.
 
-The included edit attributes for evaluation currently are:
+The complete list of edit attributes for evaluation currently is:
 
 
 *   **Object Addition:** adding an object to the image.
